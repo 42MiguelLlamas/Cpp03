@@ -5,9 +5,9 @@ ClapTrap::ClapTrap () : name("Default name"), hitPoints(10), energyPoints(10), a
     std::cout << "Default constructor called"<< std::endl;
 };
 
-ClapTrap::ClapTrap (std::string n) : name(n), hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap (std::string n) : name(n), hitPoints(10), energyPoints(10), attackDamage(2)
 {
-    std::cout << "Name constructor called"<< std::endl;
+    std::cout << "Name constructor called: " << name << std::endl;
 };
 
 ClapTrap::ClapTrap (ClapTrap const& a) : name(a.name), hitPoints(a.hitPoints), energyPoints(a.energyPoints), attackDamage(a.attackDamage)
@@ -34,17 +34,56 @@ ClapTrap::~ClapTrap ()
 
 void ClapTrap::attack(const std::string& target)
 {
-    std::cout << "ClapTrap "<<name<<" attacks"<< target<<", causing "<<attackDamage<<" points of damage!"<<std::endl;
+    if (this->energyPoints == 0)
+    {
+        std::cout << name<<" is out of energy. " <<std::endl;
+        return;
+    }
+    if (this->hitPoints == 0)
+    {
+        std::cout << name << " is dead. " << std::endl;
+        return;
+    } 
+    std::cout << name<<" attacks "<< target<<", causing "<<attackDamage<<" points of damage!"<<std::endl;
+    this->energyPoints--;
     
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    std::cout << "ClapTrap "<<name<<" has received"<< amount<<"points of damage!"<<std::endl;
-    this->hitPoints -= amount;
+    if (this->energyPoints == 0)
+    {
+        std::cout << name<<" is out of energy. " <<std::endl;
+        return;
+    }
+    if (this->hitPoints == 0)
+    {
+        std::cout << name << " is dead. " << std::endl;
+        return;
+    }  
+    std::cout << name<<" has received "<< amount<<" points of damage!"<<std::endl;
+    if (this->hitPoints < amount)
+        this->hitPoints = 0;
+    else
+        this->hitPoints -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    std::cout << "ClapTrap "<<name<<" has repaired itself"<< amount <<"points of health!"<<std::endl;
+    if (this->energyPoints == 0)
+    {
+        std::cout << name<<" is out of energy. " <<std::endl;
+        return;
+    }
+    if (this->hitPoints == 0)
+    {
+        std::cout << name << " is dead. " << std::endl;
+        return;
+    } 
+    std::cout << name<<" has repaired itself "<< amount <<" points of health!"<<std::endl;
     this->hitPoints += amount;
 }
+
+void ClapTrap::print(void)
+{
+    std::cout << name<<" has "<< hitPoints <<" points of health and " << energyPoints << " energy points."<<std::endl;    
+};
