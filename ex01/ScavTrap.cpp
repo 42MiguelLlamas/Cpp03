@@ -2,21 +2,21 @@
 
 ScavTrap::ScavTrap() : ClapTrap("", 100, 50, 20)
 {
-	std::cout << "ScavTrap constructor" << std::endl;
+	std::cout << "ScavTrap constructor " << name << std::endl;
 }
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
-	std::cout << "ScavTrap name constructor" << std::endl;
+	std::cout << "ScavTrap name constructor " << name << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructor" << std::endl;
+	std::cout << "ScavTrap destructor " << name << std::endl;
 }
 
 ScavTrap::ScavTrap (ScavTrap const& a) : ClapTrap(a.name, a.hitPoints, a.energyPoints, a.attackDamage)
 {
-    std::cout << "ScavTrap copy constructor called"<< std::endl;
+    std::cout << "ScavTrap copy constructor called "<< name<< std::endl;
 };
 
 void ScavTrap::attack(const std::string& target)
@@ -49,4 +49,5 @@ ScavTrap& ScavTrap::operator=(ScavTrap const& other)
 void ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap has enterred Gate keeper mode." << std::endl;
+    this->energyPoints--;
 }
