@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap () : name("Default name"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-    std::cout << "Default constructor called"<< std::endl;
+    std::cout << "Default constructor called "<< name << std::endl;
 };
 
 ClapTrap::ClapTrap (std::string n, int a, int b, int c) : name(n), hitPoints(a), energyPoints(b), attackDamage(c)
@@ -12,7 +12,7 @@ ClapTrap::ClapTrap (std::string n, int a, int b, int c) : name(n), hitPoints(a),
 
 ClapTrap::ClapTrap (ClapTrap const& a) : name(a.name), hitPoints(a.hitPoints), energyPoints(a.energyPoints), attackDamage(a.attackDamage)
 {
-    std::cout << "Copy constructor called"<< std::endl;
+    std::cout << "Copy constructor called " << name << std::endl;
 };
 
 ClapTrap& ClapTrap::operator=(ClapTrap const& other) 
@@ -29,7 +29,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& other)
 
 ClapTrap::~ClapTrap ()
 {
-    std::cout << "Destructor called"<< std::endl;
+    std::cout << "Destructor called " << name << std::endl;
 };
 
 void ClapTrap::attack(const std::string& target)

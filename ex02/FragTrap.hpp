@@ -2,15 +2,15 @@
 # define FRAGTRAP_HPP
 # include <iostream>
 # include <string>
-# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
 
-class FragTrap: public ClapTrap
+class FragTrap: public ScavTrap
 {
     public:
         FragTrap();
-        FragTrap(ClapTrap const& a);
+        FragTrap(FragTrap const& a);
         FragTrap (std::string n);
-        FragTrap& operator=(ClapTrap const& other);
+        FragTrap& operator=(FragTrap const& other);
         ~FragTrap();
         void attack(const std::string& target);
         void highFiveGuys(void);

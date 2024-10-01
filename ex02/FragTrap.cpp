@@ -1,22 +1,22 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap("", 100, 50, 20)
+FragTrap::FragTrap() : ScavTrap("", 100, 100, 30)
 {
-	std::cout << "FragTrap constructor" << std::endl;
+	std::cout << "FragTrap constructor " << name << std::endl;
 }
-FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 50, 20)
+FragTrap::FragTrap(std::string name) : ScavTrap(name, 100, 100, 30)
 {
-	std::cout << "FragTrap name constructor" << std::endl;
+	std::cout << "FragTrap name constructor " << name << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap destructor" << std::endl;
+	std::cout << "FragTrap destructor " << name << std::endl;
 }
 
-FragTrap::FragTrap (FragTrap const& a) : ClapTrap(a.name, a.hitPoints, a.energyPoints, a.attackDamage)
+FragTrap::FragTrap (FragTrap const& a) : ScavTrap(a.name, a.hitPoints, a.energyPoints, a.attackDamage)
 {
-    std::cout << "FragTrap copy constructor called"<< std::endl;
+    std::cout << "FragTrap copy constructor called "<< name << std::endl;
 };
 
 void FragTrap::attack(const std::string& target)
@@ -46,7 +46,7 @@ FragTrap& FragTrap::operator=(FragTrap const& other)
     return *this;
 };
 
-void FragTrap::guardGate()
+void FragTrap::highFiveGuys()
 {
 	std::cout << "FragTrap has enterred Gate keeper mode." << std::endl;
 }
