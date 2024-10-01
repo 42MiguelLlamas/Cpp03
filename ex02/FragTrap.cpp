@@ -19,22 +19,6 @@ FragTrap::FragTrap (FragTrap const& a) : ScavTrap(a.name, a.hitPoints, a.energyP
     std::cout << "FragTrap copy constructor called "<< name << std::endl;
 };
 
-void FragTrap::attack(const std::string& target)
-{
-    if (this->energyPoints == 0)
-    {
-        std::cout << name<<" is out of energy. " <<std::endl;
-        return;
-    }
-    if (this->hitPoints == 0)
-    {
-        std::cout << name << " is dead. " << std::endl;
-        return;
-    } 
-    std::cout << "FragTrap " << name<<" attacks "<< target<<", causing "<<attackDamage<<" points of damage!"<<std::endl;
-    this->energyPoints--;
-}
-
 FragTrap& FragTrap::operator=(FragTrap const& other) 
 {
     if (this == &other)

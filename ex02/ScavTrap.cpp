@@ -21,22 +21,6 @@ ScavTrap::ScavTrap (ScavTrap const& a) : ClapTrap(a.name, a.hitPoints, a.energyP
     std::cout << "ScavTrap copy constructor called "<< name<< std::endl;
 };
 
-void ScavTrap::attack(const std::string& target)
-{
-    if (this->energyPoints == 0)
-    {
-        std::cout << name<<" is out of energy. " <<std::endl;
-        return;
-    }
-    if (this->hitPoints == 0)
-    {
-        std::cout << name << " is dead. " << std::endl;
-        return;
-    } 
-    std::cout << "ScavTrap " << name<<" attacks "<< target<<", causing "<<attackDamage<<" points of damage!"<<std::endl;
-    this->energyPoints--;
-}
-
 ScavTrap& ScavTrap::operator=(ScavTrap const& other) 
 {
     if (this == &other)
