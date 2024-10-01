@@ -32,5 +32,5 @@ FragTrap& FragTrap::operator=(FragTrap const& other)
 
 void FragTrap::highFiveGuys()
 {
-	std::cout << "FragTrap has enterred Gate keeper mode." << std::endl;
+	std::cout << "FragTrap has high fived some random guys" << std::endl;
 }

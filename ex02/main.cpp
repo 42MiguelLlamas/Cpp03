@@ -55,5 +55,5 @@ int main(void)
     C.print();
     C.attack("Peter");
     C.print();
-    C.guardGate();
+    C.highFiveGuys();
 }
